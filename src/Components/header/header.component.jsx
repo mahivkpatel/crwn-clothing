@@ -9,7 +9,6 @@ import { ReactComponent as Logo } from '../../assets/crown.svg'
 import CartIcon from '../card-icon/card-icon.component.jsx'
 import CartDropdwon from '../cart-dropdown/cart-dropdown.component.jsx'
 import { selectCartHidden } from '../../redux/cart/cart.selectors.js'
-import { setCurrentUser } from '../../redux/user/user.actions.js'
 import './header.styles.scss'
 import { selectCurrentUser } from '../../redux/user/user.selector.js'
 
@@ -22,7 +21,7 @@ const Header = ({ currentUser, hidden }) => (
       <Link className="option" to="/shop">
         SHOP
       </Link>
-      <Link className="option" to="/shop">
+      <Link className="option" to="/contact">
         CONTACT
       </Link>
       {currentUser !== null && currentUser.userAuth !== null ? (
