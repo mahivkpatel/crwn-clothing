@@ -4,7 +4,7 @@ import { createStructuredSelector } from 'reselect'
 import { Route } from 'react-router-dom'
 import CollectionsOverviewContainer from '../collections-overview/collections-overview-container'
 import CollectionPageContainer from '../../Pages/collection/collection.container'
-import { fetchCollectionsStartAsync } from '../../redux/shop/shop.actions'
+import { fetchCollectionsStart } from '../../redux/shop/shop.actions'
 import { selectIsCollectionsLoaded } from '../../redux/shop/shop.selector'
 class ShopPage extends React.Component {
   constructor() {
@@ -16,8 +16,8 @@ class ShopPage extends React.Component {
 
   unsubscribeFromAuth = null
   componentDidMount() {
-    const { fetchCollectionsStartAsync } = this.props
-    fetchCollectionsStartAsync()
+    const { fetchCollectionsStart } = this.props
+    fetchCollectionsStart()
   }
   render() {
     const { match } = this.props
@@ -39,7 +39,7 @@ class ShopPage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync()),
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
 })
 
 const mapStateToProps = createStructuredSelector({
