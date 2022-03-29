@@ -12,6 +12,7 @@ import { checkUserSession } from './redux/user/user.actions'
 import { GlobalStyle } from './global.styles'
 import Spinner from './Components/spinner/spinner.component'
 import ErrorBoundary from './Components/error-boundary/erroe-boundary.component'
+import ReactGA from 'react-ga'
 const SignInAndSingUpPage = lazy(() =>
   import('./Components/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx'),
 )
@@ -22,8 +23,13 @@ const App = () => {
   const currentUser = useSelector(selectCurrentUser)
   const dispatch = useDispatch()
 
+  const setGA = () => {
+    ReactGA.initialize('G-BW80HKRZXF')
+    ReactGA.pageview('/')
+  }
   useEffect(() => {
     dispatch(checkUserSession())
+    setGA()
   }, [dispatch])
 
   return (
